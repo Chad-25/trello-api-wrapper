@@ -1,0 +1,24 @@
+<h1>Board Details</h1>
+
+<table border='1'>
+  <thead>
+    <tr>
+      <th>IDs</th>
+      <th>Card Names</th>
+      <th>URL</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cards.each do |card| %>
+      <tr>
+        <td><%= card.id %></td>
+        <td><%= card.name %></td>
+        <td><%= card.url %></td>
+        <td><%= card.desc %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Main", users_path %>

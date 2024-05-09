@@ -1,0 +1,25 @@
+<h1>User Account Details</h1>
+
+<table border='1'>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Board IDs</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @current_user.id_boards.each do |board_id| %>
+        <tr>
+          <td><%= @current_user.username %></td>
+          <td><%= @current_user.full_name %></td>
+          <td><%= @current_user.email %></td>
+          <td>
+              <% board = @trello_client.get_board(board_id) %>
+              <%= link_to board.name, user_path(@current_user.username, board_id) %><br>
+          </td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
